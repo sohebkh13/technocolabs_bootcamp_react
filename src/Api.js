@@ -3,7 +3,7 @@ const api_course_detail =
     "is_purchased" : true,
     "course_id" : 100004,
     "course_name" : "Introduction to Design",
-    "course_overview" : "This is overview body",
+    "course_overview" : "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.",
     "course_curriculum" : [
         {
             "lession_name" : "PHP History",
@@ -82,7 +82,7 @@ const api_course_detail =
         "profile_url" : "http://localhost:300/author/123456"
     }],
     "course_rating" : {
-        "total_ratings" : 21144,
+        "total_reviews" : 21144,
         "score" : "3.4",
         "total_reviews" : 481,
         "reviews" : [{

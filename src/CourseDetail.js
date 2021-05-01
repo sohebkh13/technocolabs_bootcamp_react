@@ -8,30 +8,32 @@ import Footer from './Footer.js';
 
 // import { default_icon_1, default_icon_2, default_icon_3 } from './default.js';
 import { api_course_detail } from './Api.js';
+import { API_URL } from './constants.js';
 
 const CourseDetail = () => {
-    const isPurchased = true;
 
     let [courseData, setCourseData] = useState({
-        isLoaded : false,
-        data : null
+        isLoaded : true,
+        data : api_course_detail
     });
+    
+    const isPurchased = courseData.data.is_purchased;
 
     useEffect( () => {
-        if(!courseData.isLoaded){
-            fetch("http://localhost/api/course-detail.json")
-            .then( response => {
-                console.log(response);
-                return response.json();
-            })
-            .then( result => {
-                setCourseData({
-                    isLoaded : true,
-                    data : result
-                });
-                console.log(result);
-            });
-        }
+        // if(!courseData.isLoaded){
+        //     fetch(API_URL.COURSE_DETAIL)
+        //     .then( response => {
+        //         console.log(response);
+        //         return response.json();
+        //     })
+        //     .then( result => {
+        //         setCourseData({
+        //             isLoaded : true,
+        //             data : result
+        //         });
+        //         console.log(result);
+        //     });
+        // }
     });
 
     const CourseDetailForPurchased = () => {
@@ -65,7 +67,11 @@ const CourseDetail = () => {
             </div>
         );
     } else {
-        return(<div>Loading</div>);
+        return(
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        );
     }
 }
 

@@ -1,9 +1,22 @@
+import {useState} from 'react';
+
 import { TableOfContent,
          CourseOverview,
          CourseAnnouncement,
          CourseFaq} from './AppComponent.js';
 
 const CourseLesson = (arg) => {
+
+    let [activeTab , setActiveTab] = useState(1);
+
+    const Tabs = () => {
+        switch(activeTab){
+            case 1 : return(<CourseOverview data={arg.data.course_overview} />);
+            case 2 : return(<CourseAnnouncement data={arg.data.course_announcements} />);
+            case 3 : return(<CourseFaq data={arg.data.course_faqs} />);
+            default : return(<CourseOverview data={arg.data.course_overview} />);
+        }        
+    }
     return(
         <div class="row clearfix">
             
@@ -22,18 +35,16 @@ const CourseLesson = (arg) => {
                         
                             {/* <!--Tab Btns--> */}
                             <ul class="tab-btns tab-buttons clearfix">
-                                <li data-tab="#prod-overview" class="tab-btn active-btn">Overview</li>
+                                <li class="tab-btn active-btn" onClick={()=>{setActiveTab(1)}}>Overview</li>
                                 {/* <li data-tab="#prod-curriculum" class="tab-btn">Curriculum</li> */}
-                                <li data-tab="#prod-announcement" class="tab-btn">Announcement</li>
-                                <li data-tab="#prod-faq" class="tab-btn">FAQ</li>
-                                <li data-tab="#prod-reviews" class="tab-btn">Reviews</li>
+                                <li class="tab-btn" onClick={()=>{setActiveTab(2)}}>Announcement</li>
+                                <li class="tab-btn" onClick={()=>{setActiveTab(3)}}>FAQ</li>
+                                <li class="tab-btn" onClick={()=>{setActiveTab(4)}}>Reviews</li>
                             </ul>
                             
                             {/* <!--Tabs Container--> */}
                             <div class="tabs-content">
-                                <CourseOverview data={arg.data.course_overview} />
-                                <CourseAnnouncement data={arg.data.course_announcements} />
-                                <CourseFaq data={arg.data.course_faqs} />
+                                <Tabs />
                             </div>
                         </div>
                     </div>

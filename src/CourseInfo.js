@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 import { TableOfContent,
     CourseOverview,
     CourseAnnouncement,
@@ -7,9 +9,21 @@ import { TableOfContent,
 
 const CourseInfo = (arg) => {
 
+    let [activeTab , setActiveTab] = useState(1);
+
+    const Tabs = () => {
+        switch(activeTab){
+            case 1 : return(<CourseOverview data={arg.data.course_overview}/>);
+            case 2 : return(<TabCurriculum data={arg.data.course_curriculum}/>);
+            case 3 : return(<CourseAnnouncement data={arg.data.course_announcements}/>);
+            case 4 : return(<CourseFaq data={arg.data.course_faqs}/>);
+            default : return(<CourseOverview data={arg.data.course_overview}/>);
+        }
+    }
+
     const TabCurriculum = (arg) => {
         return(
-            <div class="tab" id="prod-curriculum" style={{display : "none"}}>
+            <div class="tab active-tab" id="prod-curriculum" style={{display : "none"}}>
                 <div class="content">
                     {/* <!-- Accordion Box --> */}
                     <TableOfContent data={arg.data}/>
@@ -36,19 +50,16 @@ const CourseInfo = (arg) => {
                         
                             {/* <!--Tab Btns--> */}
                             <ul class="tab-btns tab-buttons clearfix">
-                                <li data-tab="#prod-overview" class="tab-btn active-btn">Overview</li>
-                                <li data-tab="#prod-curriculum" class="tab-btn">Curriculum</li>
-                                <li data-tab="#prod-announcement" class="tab-btn">Announcement</li>
-                                <li data-tab="#prod-faq" class="tab-btn">FAQ</li>
-                                <li data-tab="#prod-reviews" class="tab-btn">Reviews</li>
+                                <li data-tab="#prod-overview" class="tab-btn active-btn" onClick={()=>{setActiveTab(1)}}>Overview</li>
+                                {/* <li data-tab="#prod-curriculum" class="tab-btn" onClick={()=>{setActiveTab(2)}}>Curriculum</li> */}
+                                <li data-tab="#prod-announcement" class="tab-btn" onClick={()=>{setActiveTab(3)}}>Announcement</li>
+                                <li data-tab="#prod-faq" class="tab-btn" onClick={()=>{setActiveTab(4)}}>FAQ</li>
+                                <li data-tab="#prod-reviews" class="tab-btn" onClick={()=>{setActiveTab(5)}}>Reviews</li>
                             </ul>
                             
                             {/* <!--Tabs Container--> */}
                             <div class="tabs-content">
-                                <CourseOverview data={arg.data.course_overview}/>
-                                <TabCurriculum data={arg.data.course_curriculum}/>
-                                <CourseAnnouncement data={arg.data.course_announcements}/>
-                                <CourseFaq data={arg.data.course_faqs}/>
+                                <Tabs />
                             </div>
                         </div>
                     </div>

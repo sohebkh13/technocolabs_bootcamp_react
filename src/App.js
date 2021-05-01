@@ -8,7 +8,6 @@ import {
 import LandingPage from './LandingPage.js';
 import CourseDetail from './CourseDetail.js';
 import Error from './Error.js';
-import Header from './Header.js';
 
 const App = () => {
   return (

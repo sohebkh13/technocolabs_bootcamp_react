@@ -84,17 +84,18 @@ const CourseOverview = (arg) => {
 }
 
 const CourseAnnouncement = (arg) => {
+    console.log(arg);
     const AnnouncementBlock = () => {
         const announcement = arg.data;
         const announcements = announcement.map( (announce) => {
-            return (<li class="accordion block">
+            return (<li class="block">
                         <div class="acc-btn">
                             <div class="icon-outer">
                                 <span class="icon icon-plus flaticon-angle-arrow-down"></span>
                             </div> 
                             {announce.subject}
                         </div>
-                        <div class="acc-content">
+                        <div class="pl-2">
                             <div class="content">
                                 <div class="clearfix">
                                     {announce.body}
@@ -109,7 +110,7 @@ const CourseAnnouncement = (arg) => {
         );
     }
     return(
-        <div class="tab" id="prod-announcement">
+        <div class="tab active-tab" id="prod-announcement">
             <div class="content">
                 {/* <!-- Accordion Box --> */}
                 <AnnouncementBlock />
@@ -122,14 +123,14 @@ const CourseFaq = (arg) => {
     const FaqBlock = () => {
         const faqArray = arg.data;
         const faqs = faqArray.map( (faq) => {
-            return <li class="accordion block">
+            return <li class="block">
                         <div class="acc-btn">
                             <div class="icon-outer">
                                 <span class="icon icon-plus flaticon-angle-arrow-down"></span>
                             </div> 
                             {faq.question}
                         </div>
-                        <div class="acc-content">
+                        <div class="pl-2">
                             <div class="content">
                                 <div class="clearfix">
                                     {faq.Answer}
@@ -144,7 +145,7 @@ const CourseFaq = (arg) => {
         );
     }
     return(
-        <div class="tab" id="prod-faq">
+        <div class="tab active-tab" id="prod-faq">
             <div class="content">
                 {/* <!-- Accordion Box --> */}
                 <FaqBlock />
