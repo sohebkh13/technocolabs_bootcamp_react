@@ -1,3 +1,24 @@
+# Must Follow this
+
+### `npm install react-router`
+
+Must install to avoid error.
+
+### `npm install react-router-dom`
+
+Must install to avoid error.
+
+### Reuse other components too
+
+For eg. I created `Header.js` and `Footer.js` that may be, can be used by others. 
+Use `Api.js` for creating dummy json response from server.
+Use `default.js` for constants.
+
+### How to send user to course-detail page ?
+
+Simply, Path format will be like this `/course-detail/[course-id]` . Eg. `/course-detail/123456`. Helful for user who are working on, search, course path and cart tasks.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
