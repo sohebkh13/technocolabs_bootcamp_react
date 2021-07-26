@@ -1,5 +1,8 @@
-Technocolabs Web Development Project
-To Be Done In React
+Technocolabs SoftWares
+SoftWare Developer 
+Web Development Project
+Task 2 
+React
 
 # Getting Started with Create React App
 
